@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ZAAYA · Festive &amp; Occasion Wear</title>
+  <meta name="description" content="Handpicked kurtas, sarees, lehengas and gowns. Cash on Delivery across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script>
+    function svgFallback(i) {
+      if (i.dataset.fallback && !i.dataset.fallbackUsed) {
+        i.dataset.fallbackUsed = '1';
+        i.src = i.dataset.fallback;
+        return;
+      }
+      const box = i.closest('.media, .modal-media, .fc-thumb, .line');
+      if (box) box.classList.add('noimg');
+      i.remove();
+    }
+  </script>
+</head>
+<body>
+  <div class="topbar">Free shipping above ₹2,999 · Cash on Delivery across India · 15-day easy exchange</div>
+
+  <header class="header">
+    <div class="wrap">
+      <a href="#top" class="logo">ZAAYA</a>
+      <nav class="nav">
+        <a href="#shop" data-cat-link="all">New In</a>
+        <a href="#shop" data-cat-link="Kurtas">Kurtas</a>
+        <a href="#shop" data-cat-link="Sarees">Sarees</a>
+        <a href="#shop" data-cat-link="Lehengas">Lehengas</a>
+        <a href="#shop" data-cat-link="Gowns">Gowns</a>
+        <a href="#shop" data-cat-link="Co-ords">Co-ords</a>
+      </nav>
+      <label class="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Search dresses, kurtas, sarees" aria-label="Search">
+      </label>
+      <button class="icon-btn" id="profileBtn" aria-label="Open profile">Profile</button>
+      <button class="icon-btn" id="wishBtn" aria-label="Wishlist">♡ <span class="count" id="wishCount">0</span></button>
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">Bag <span class="count" id="bagCount">0</span></button>
+    </div>
+  </header>
+
+  <section class="stage" id="top">
+    <div class="stage-copy">
+      <p class="eyebrow reveal">The Festive Edit · 2026</p>
+      <h1 class="reveal d1">Wear the <em>celebration</em><br>you deserve.</h1>
+      <p class="lede reveal d2">Hand-embroidered kurtas, banarasi sarees, bridal lehengas and evening gowns, made in small batches and delivered to your door.</p>
+      <div class="cta reveal d3">
+        <a class="btn" href="#shop" data-cat-link="all">Shop the Edit</a>
+        <a class="btn line-btn" href="#shop" data-cat-link="Lehengas">Bridal Lehengas</a>
+      </div>
+      <dl class="stats reveal d4">
+        <div><dt>4.7★</dt><dd>Average rating</dd></div>
+        <div><dt>12k+</dt><dd>Happy customers</dd></div>
+        <div><dt>COD</dt><dd>Pay on delivery</dd></div>
+      </dl>
+    </div>
+    <div class="stage-visual reveal d2">
+      <div class="arch">
+        <img src="https://images.pexels.com/photos/6739340/pexels-photo-6739340.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-fallback="/static/img/hero.svg" alt="Model in elegant traditional Indian occasion wear" fetchpriority="high" onerror="svgFallback(this)">
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <button class="float-card" data-open="kundan-anarkali">
+        <span class="fc-thumb"><img src="https://images.pexels.com/photos/13124413/pexels-photo-13124413.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=240" data-fallback="/static/img/kundan-anarkali.svg" alt="" loading="lazy" onerror="svgFallback(this)"></span>
+        <span><small>Bestseller</small><strong>Kundan Anarkali</strong><em>₹3,499 · Shop now →</em></span>
+      </button>
+      <span class="seal">Handcrafted<br>in India</span>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div>
+        <span>Kurtas</span><span>Sarees</span><span>Lehengas</span><span>Gowns</span><span>Co-ords</span>
+        <span>Kurtas</span><span>Sarees</span><span>Lehengas</span><span>Gowns</span><span>Co-ords</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="perks">
+    <div class="wrap">
+      <div><b>Free Shipping</b>On orders above ₹2,999</div>
+      <div><b>Cash on Delivery</b>Pay when your order arrives</div>
+      <div><b>Easy Exchange</b>15 days, no questions</div>
+      <div><b>Authentic Craft</b>Handloom and hand-embroidered</div>
+    </div>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="wrap">
+      <div class="toolbar">
+        <div>
+          <p class="eyebrow">Shop</p>
+          <h2>The Collection</h2>
+          <p class="rate" id="count"></p>
+        </div>
+        <select id="sort" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="price_asc">Price: low to high</option>
+          <option value="price_desc">Price: high to low</option>
+          <option value="rating">Top rated</option>
+        </select>
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip on" data-cat="all">All</button>
+        <button class="chip" data-cat="Kurtas">Kurtas</button>
+        <button class="chip" data-cat="Sarees">Sarees</button>
+        <button class="chip" data-cat="Lehengas">Lehengas</button>
+        <button class="chip" data-cat="Gowns">Gowns</button>
+        <button class="chip" data-cat="Co-ords">Co-ords</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div>
+        <h4>ZAAYA</h4>
+        <p>Dresses for weddings, festivals and everyday grace. Designed in India.</p>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <p>Shipping &amp; delivery</p><p>Exchanges &amp; returns</p><p>Size guide</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@zaaya.example</p><p>Mon–Sat, 10am–7pm IST</p>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="bottomnav" aria-label="Mobile">
+    <a href="#top">Home</a>
+    <a href="#shop" data-cat-link="all">Shop</a>
+    <button id="bNavWish">Wishlist</button>
+    <button id="bNavBag">Bag</button>
+    <button id="bNavProfile">Profile</button>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mName">
+    <button class="close" id="mClose" aria-label="Close">×</button>
+    <div class="modal-media" id="mMedia"></div>
+    <div class="modal-body">
+      <p class="eyebrow" id="mCat"></p>
+      <h2 id="mName"></h2>
+      <p class="rate" id="mRate"></p>
+      <p class="price" id="mPrice"></p>
+      <p><strong>Select size</strong></p>
+      <div class="sizes" id="mSizes"></div>
+      <p class="msg" id="mMsg"></p>
+      <button class="btn block" id="mAdd">Add to bag</button>
+      <p id="mDesc"></p>
+      <p class="rate" id="mFabric"></p>
+      <ul class="features">
+        <li>Free shipping above ₹2,999</li>
+        <li>Cash on Delivery available</li>
+        <li>15-day easy exchange</li>
+      </ul>
+    </div>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-label="Shopping bag">
+    <div class="drawer-head">
+      <h3>Your Bag</h3>
+      <button class="icon-btn" id="bagClose">Close ✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="ship">
+        <p class="rate" id="shipNote"></p>
+        <div class="ship-meter"><i id="meter"></i></div>
+      </div>
+      <div id="bagItems"></div>
+    </div>
+    <div class="drawer-foot">
+      <div class="sum">
+        <p><span>Subtotal</span><b id="sub"></b></p>
+        <p><span>Shipping</span><b id="ship"></b></p>
+        <p class="tot"><span>Total</span><b id="total"></b></p>
+      </div>
+      <form id="checkout" class="form">
+        <input name="name" placeholder="Full name" required autocomplete="name">
+        <div class="row2">
+          <input name="phone" inputmode="numeric" placeholder="Mobile (10 digits)" required autocomplete="tel">
+          <input name="pincode" inputmode="numeric" placeholder="Pincode" required autocomplete="postal-code">
+        </div>
+        <input name="email" type="email" placeholder="Email (optional)" autocomplete="email">
+        <textarea name="address" rows="2" placeholder="House no., street, area, city, state" required></textarea>
+        <div class="pay">
+          <label><input type="radio" name="payment" value="cod" checked> Cash on Delivery</label>
+          <label><input type="radio" name="payment" value="upi"> UPI</label>
+        </div>
+        <button class="btn block" id="placeBtn" type="submit" disabled>Place order</button>
+        <p id="coMsg" class="msg" aria-live="polite"></p>
+      </form>
+    </div>
+  </aside>
+
+<div class="success" id="success" role="dialog" aria-modal="true" aria-labelledby="sTitle" aria-hidden="true">
+    <div class="success-card">
+      <div class="tick">✓</div>
+      <p class="eyebrow">Order confirmed</p>
+      <h2 id="sTitle">Thank you, <span id="sName"></span>.</h2>
+      <p class="rate">Order <b id="sId"></b> · <span id="sPay"></span></p>
+      <div class="s-items" id="sItems"></div>
+      <div class="s-total"><span>Total</span><b id="sTotal"></b></div>
+      <p class="rate">Delivery in 3–6 working days to PIN <span id="sPin"></span></p>
+      <div class="s-actions">
+        <button class="btn block" id="sContinue">Continue shopping</button>
+        <button class="btn line-btn block" id="sClose">Close</button>
+      </div>
+    </div>
+  </div>
+  <aside class="drawer profile-drawer" id="profileDrawer" aria-label="Your profile and orders">
+    <div class="drawer-head"><div><p class="eyebrow">ZAAYA ACCOUNT</p><h3>Your profile</h3></div><button class="icon-btn" id="profileClose">Close ✕</button></div>
+    <div class="drawer-body">
+      <div class="profile-intro"><span class="profile-avatar">Z</span><div><h3>Welcome back</h3><p class="rate">Find your saved customer details and order updates.</p></div></div>
+      <form id="profileLookup" class="form profile-form">
+        <label>Mobile number used at checkout<input name="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required></label>
+        <label>Email address (optional)<input name="email" type="email" placeholder="Email used for your order"></label>
+        <button class="btn block" type="submit">View my orders</button>
+        <p class="msg" id="profileMsg" aria-live="polite"></p>
+      </form>
+      <div id="profileDetails"></div>
+    </div>
+  </aside>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
