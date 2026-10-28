@@ -7,8 +7,19 @@ import uuid
 from flask import Flask, g, jsonify, render_template, request
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.environ.get("DB_PATH", os.path.join(BASE, "zaaya.db"))
+
+# Vercel demo: SQLite must use a writable temporary directory.
+# Local development: retain the existing database configuration.
+if os.environ.get("VERCEL"):
+    DB_PATH = "/tmp/saaya_demo.db"
+else:
+    DB_PATH = os.environ.get(
+        "DB_PATH",
+        os.path.join(BASE, "zaaya.db")
+    )
+
 SHIP_FREE, SHIP_FEE = 2999, 99
+
 app = Flask(__name__)
 
 SCHEMA = """
