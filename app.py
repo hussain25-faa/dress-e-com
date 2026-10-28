@@ -8,9 +8,15 @@ from flask import Flask, g, jsonify, render_template, request
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-# Vercel demo: SQLite must use a writable temporary directory.
-# Local development: retain the existing database configuration.
-if os.environ.get("VERCEL"):
+# Detect Vercel even if its environment variable is unavailable.
+IS_VERCEL = (
+    bool(os.environ.get("VERCEL"))
+    or BASE.startswith("/var/task")
+    or bool(os.environ.get("AWS_LAMBDA_FUNCTION_NAME"))
+)
+
+if IS_VERCEL:
+    # Temporary, writable storage for demo purposes only.
     DB_PATH = "/tmp/saaya_demo.db"
 else:
     DB_PATH = os.environ.get(
